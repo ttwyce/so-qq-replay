@@ -73,6 +73,23 @@ uv pip install --python /tmp/skvenv/bin/python curl_cffi
 
 ---
 
+## 维护工具（`tools/`）
+
+以下脚本用于**重建与发布**本仓库，不属于协议复现运行时；普通使用者无需运行：
+
+| 文件 | 用途 |
+|---|---|
+| `tools/build_public_release.py` | 从源工作区构建脱敏发布目录 |
+| `tools/install_gh.py` | 在 `aarch64` 环境安装 GitHub CLI 到 `/usr/local/bin` |
+| `tools/push_release.py` | 通过 GitHub API 推送（无需本地 `git`） |
+| `tools/gh.sh` | `gh` 不存在时的自动恢复包装 |
+
+> 维护脚本依赖源工作区的 `release_meta/` 与 `so_qq_evidence/` 结构；这些原始材料
+> （第三方 JS bundle、SSR HTML 快照、抓包数据、设备探测脚本）**不随公开仓库分发**，
+> 详见 [NOTICE.md](NOTICE.md) 与 [DISCLAIMER.md](DISCLAIMER.md)。
+
+---
+
 ## 验证状态
 
 | 门槛 | 结果 |
